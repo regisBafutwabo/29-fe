@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from 'next/image';
 
 import { Button } from '@/components/common/Button/Button';
 import { Chevron } from '@/components/svg/Chevron/Chevron';
@@ -40,10 +41,11 @@ export const ImageCarousel = React.memo(function ImageCarousel({
       <div className="absolute inset-0 overflow-hidden" ref={emblaRef}>
         <div className="flex h-full touch-pan-y">
           {images?.map((image, index) => (
-            <div key={index} className="relative flex-[0_0_100%] min-w-0">
-              <img
+            <div key={index} className="relative w-full aspect-square">
+              <Image
                 src={image}
                 alt={`${alt} - ${index + 1}`}
+                fill
                 className="w-full h-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
               />
