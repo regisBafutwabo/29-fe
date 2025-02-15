@@ -8,17 +8,17 @@ const pretendard = localFont({
     {
       path: "./fonts/Pretendard-Regular.woff",
       weight: "400",
-      style: "regular",
+      style: "normal",
     },
     {
       path: "./fonts/Pretendard-Medium.woff",
-      weight: "600",
-      style: "medium",
+      weight: "500",
+      style: "normal",
     },
     {
       path: "./fonts/Pretendard-Bold.woff",
       weight: "700",
-      style: "bold",
+      style: "normal",
     },
   ],
   // Expose a CSS variable for Tailwind integration
