@@ -1,16 +1,28 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import './globals.css';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+
+const pretendard = localFont({
+  src: [
+    {
+      path: "./fonts/Pretendard-Regular.woff",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "./fonts/Pretendard-Medium.woff",
+      weight: "600",
+      style: "medium",
+    },
+    {
+      path: "./fonts/Pretendard-Bold.woff",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  // Expose a CSS variable for Tailwind integration
+  variable: "--font-pretendard",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="ko">
+      <body className={`${pretendard.variable}`}>{children}</body>
     </html>
   );
 }
