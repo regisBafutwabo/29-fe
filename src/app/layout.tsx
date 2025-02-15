@@ -1,7 +1,7 @@
-import './globals.css';
+import "./globals.css";
 
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
 const pretendard = localFont({
   src: [
@@ -37,7 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${pretendard.variable}`}>{children}</body>
+      <body className={`${pretendard.variable}`}>
+        <div className="min-h-screen bg-background  ">
+          <main className="max-w-container mx-auto">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }

@@ -103,16 +103,12 @@ const Select = ({
                   p-[6px] cursor-pointer
                   ${option.disabled ? "cursor-not-allowed " : ""}
                 `}
-                aria-disabled={option.disabled}
                 onClick={() => handleSelect(option)}
               >
                 <Label
                   text={option.label}
                   className={`${option.disabled ? "text-soldout" : ""}`}
                 />
-                {option.disabled && (
-                  <span className="ml-2 text-soldout">(품절)</span>
-                )}
               </li>
             ))}
           </ul>

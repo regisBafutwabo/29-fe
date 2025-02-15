@@ -1,7 +1,22 @@
 import { twMerge } from 'tailwind-merge';
 
-export const Chevron = ({ direction = "down", className = "" }) => {
-  const defaultClasses = `${direction === "up" ? "rotate-180" : "rotate-0"}`;
+type ChevronProps = {
+  direction?: "up" | "down" | "left" | "right";
+  className?: string;
+};
+
+const rotationClasses = {
+  up: "rotate-180",
+  down: "rotate-0",
+  left: "rotate-90",
+  right: "-rotate-90",
+};
+
+export const Chevron = ({
+  direction = "down",
+  className = "",
+}: ChevronProps) => {
+  const defaultClasses = rotationClasses[direction] || "rotate-0";
 
   return (
     <svg
