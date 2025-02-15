@@ -7,6 +7,8 @@ export interface ProductVariant {
   color: Color;
   quantity: number;
   sku: string;
+  price?: number;
+  extraPrice?: number;
 }
 
 export interface Product {
@@ -35,8 +37,8 @@ export interface Product {
     options: {
       sizes: Array<"L" | "M" | "S">;
       colors: Array<"Teal" | "Black" | "White">;
-      giftWrap: boolean;
-      giftWrapPrice: number;
+      extraOption: boolean;
+      extraOptionPrice: number;
     };
   };
   message: string | null;
@@ -52,5 +54,5 @@ export interface Product {
 export interface SelectedOptions {
   size: string;
   color: string;
-  giftWrap: string;
+  extraOption: string;
 }

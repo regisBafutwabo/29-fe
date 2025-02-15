@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "disabled" | "outlined" | "text";
+  variant?: "primary" | "disabled" | "outlined" | "text" | "tertiary";
   fullWidth?: boolean;
 }
 
@@ -16,6 +16,7 @@ export function Button({
 }: ButtonProps) {
   const variants = {
     primary: "bg-primary text-white active:bg-primary/90 font-bold",
+    tertiary: "bg-divider text-primary active:bg-divider/90 font-normal",
     disabled: "bg-btn-disabled text-txt-disabled font-bold",
     text: "bg-transparent text-primary active:bg-primary/10 font-normal",
     outlined:

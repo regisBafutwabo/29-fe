@@ -81,7 +81,6 @@ const Select = ({
       {label && <Label text={label} required={required} />}
 
       {/* Input & Chevron */}
-
       <div
         className={twMerge(defaultClasses, className)}
         onClick={toggleSelect}
