@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({
-  variant = "primary",
+  variant = "text",
   fullWidth = false,
   children,
   className = "",
@@ -16,7 +16,7 @@ export function Button({
 }: ButtonProps) {
   const variants = {
     primary: "bg-primary text-white active:bg-primary/90 font-bold",
-    disabled: "bg-btn-disabled text-text-disabled font-bold",
+    disabled: "bg-btn-disabled text-txt-disabled font-bold",
     text: "bg-transparent text-primary active:bg-primary/10 font-normal",
     outlined:
       "bg-transparent border border-line text-primary active:bg-primary/10 font-normal",

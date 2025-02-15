@@ -1,17 +1,18 @@
 import { twMerge } from 'tailwind-merge';
 
 interface LabelProps {
-  text: string;
+  text: string | number;
   required?: boolean;
   className?: string;
 }
 
-const defaultClasses = "font-medium text-primary gap-[2px]";
+const defaultClasses = "font-medium text-primary";
 
 export function Label({ text, required, className = "" }: LabelProps) {
   return (
-    <span className={twMerge(defaultClasses, className)}>
-      {text} {required && <span className="text-accent font-medium">*</span>}
-    </span>
+    <label className={twMerge(defaultClasses, className)}>
+      {text}
+      {required && <span className="text-accent font-medium ml-[2px]">*</span>}
+    </label>
   );
 }

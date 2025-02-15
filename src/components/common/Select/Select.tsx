@@ -89,7 +89,9 @@ const Select = ({
         <div className="flex items-center justify-between p-3 pr-[10px]">
           <Label
             text={selectedOption ? selectedOption.label : placeholder}
-            className={`block truncate`}
+            className={`block truncate ${
+              disabled ? "text-txt-disabled" : ""
+            } font-normal`}
           />
           <Chevron direction={isOpen ? "down" : "up"} />
         </div>

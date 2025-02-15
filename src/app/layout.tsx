@@ -1,7 +1,7 @@
-import "./globals.css";
+import './globals.css';
 
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 
 const pretendard = localFont({
   src: [

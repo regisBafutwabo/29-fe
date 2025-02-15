@@ -1,4 +1,3 @@
-// components/common/Counter/Counter.tsx
 "use client";
 
 import { Minus } from '@/components/svg/Minus/Minus';
