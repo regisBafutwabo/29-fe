@@ -58,11 +58,13 @@ export function Checkbox({
             </svg>
           )}
           {indeterminate && (
-            <div className="w-2.5 h-0.5 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <div className="w-2.5 h-0.5 bg-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           )}
         </div>
       </div>
-      {label && <Label className="font-normal" text={label} />}
+      {label && (
+        <Label className="font-normal max-w-[200px] truncate" text={label} />
+      )}
     </label>
   );
 }

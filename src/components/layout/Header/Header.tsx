@@ -1,12 +1,12 @@
 "use client";
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-import { Button } from '@/components/common/Button/Button';
-import { Label } from '@/components/common/Label/Label';
-import { Cart } from '@/components/svg/Cart/Cart';
-import { Chevron } from '@/components/svg/Chevron/Chevron';
-import { useCartStore } from '@/store/cartStore';
+import { Button } from "@/components/common/Button/Button";
+import { Label } from "@/components/common/Label/Label";
+import { Cart } from "@/components/svg/Cart/Cart";
+import { Chevron } from "@/components/svg/Chevron/Chevron";
+import { useCartStore } from "@/store/cartStore";
 
 interface HeaderProps {
   title: string;
@@ -18,7 +18,7 @@ export const Header = ({ title, showCart }: HeaderProps) => {
   const router = useRouter();
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-[60px] bg-white z-50 border-b border-divider ">
+    <header className="fixed top-0 left-0 right-0 h-[60px] bg-background z-50 border-b border-divider ">
       <div className="flex items-center h-full px-[19px] max-w-container mx-auto">
         {/* Back Button */}
         <Button

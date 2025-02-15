@@ -1,15 +1,12 @@
 "use client";
 
-import React, {
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { useCallback, useEffect } from "react";
 
-import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
+import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 
-import { Button } from '@/components/common/Button/Button';
-import { Chevron } from '@/components/svg/Chevron/Chevron';
+import { Button } from "@/components/common/Button/Button";
+import { Chevron } from "@/components/svg/Chevron/Chevron";
 
 interface ImageCarouselProps {
   images: string[];
@@ -58,13 +55,13 @@ export const ImageCarousel = React.memo(function ImageCarousel({
         <>
           <Button
             onClick={scrollPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center z-10"
           >
             <Chevron direction="left" />
           </Button>
           <Button
             onClick={scrollNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center z-10"
           >
             <Chevron direction="right" />
           </Button>

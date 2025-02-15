@@ -1,9 +1,17 @@
+import { CartHeader } from '@/components/cart/CartHeader/CartHeader';
+import {
+  CheckoutFooter,
+} from '@/components/cart/CheckoutFooter/CheckoutFooter';
+import { Items } from '@/components/cart/Items/Items';
+
 export default function CartPage() {
   return (
-    <div className="">
-      {/* Items */}
-
-      {/* Actions */}
+    <div className="max-w-container relative">
+      <div className="flex flex-col px-4">
+        <CartHeader />
+        <Items />
+      </div>
+      <CheckoutFooter />
     </div>
   );
 }

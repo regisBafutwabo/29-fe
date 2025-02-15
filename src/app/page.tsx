@@ -1,9 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Button } from "@/components/common/Button/Button";
-import { FilledLabel } from "@/components/common/Label/FilledLabel";
-import { Label } from "@/components/common/Label/Label";
-import { InteractiveComponent } from "@/components/InteractiveComponent";
+import { Button } from '@/components/common/Button/Button';
+import { FilledLabel } from '@/components/common/Label/FilledLabel';
+import { Label } from '@/components/common/Label/Label';
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
           </Button>
           <Label text="Label" />
           <FilledLabel label="Label" className="w-fit" />
-          <InteractiveComponent />
         </div>
       </main>
       <footer className="max-w-container mx-auto fixed bottom-0 left-0 right-0 flex justify-center py-4 bg-background border-t border-divider">

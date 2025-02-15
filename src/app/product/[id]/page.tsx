@@ -1,8 +1,12 @@
-import { ImageCarousel } from "@/components/product/Carousel/Carousel";
-import { ProductHeader } from "@/components/product/ProductHeader/ProductHeader";
-import { ProductInfo } from "@/components/product/ProductInfo/ProductInfo";
-import { SelectionOptions } from "@/components/product/SelectionOptions/SelectionOptions";
-import { generateMockProduct } from "@/lib/utils/mockData";
+import { ImageCarousel } from '@/components/product/Carousel/Carousel';
+import {
+  ProductHeader,
+} from '@/components/product/ProductHeader/ProductHeader';
+import { ProductInfo } from '@/components/product/ProductInfo/ProductInfo';
+import {
+  SelectionOptions,
+} from '@/components/product/SelectionOptions/SelectionOptions';
+import { generateMockProduct } from '@/lib/utils/mockData';
 
 type ProductPageProps = {
   params: {
@@ -10,8 +14,8 @@ type ProductPageProps = {
   };
 };
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const product = generateMockProduct();
+export default async function ProductPage({ params }: ProductPageProps) {
+  const product = await generateMockProduct();
 
   return (
     <div className="bg-background">
@@ -39,7 +43,6 @@ export default function ProductPage({ params }: ProductPageProps) {
             discountRate={product?.data?.discountRate}
           />
         </div>
-
         <SelectionOptions product={product} />
       </section>
     </div>

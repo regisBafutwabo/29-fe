@@ -60,7 +60,8 @@ export const useCartStore = create<CartStore>()(
             };
           }
 
-          const extraPrice = variant.extraPrice ?? 0;
+          const extraPrice =
+            extraOption && variant.extraPrice ? variant.extraPrice : 0;
           const basePrice = variant.price ?? 0;
 
           return {
@@ -102,13 +103,15 @@ export const useCartStore = create<CartStore>()(
           items: state.items.map((item) => {
             if (item.id !== id) return item;
 
-            const newQuantity = Math.max(1, item.quantity + change);
+            const newQuantity = change;
             return {
               ...item,
               quantity: newQuantity,
               totalPrice:
                 (item.price +
-                  (item.extraOption === "선물포장 (2,000원)" ? 2000 : 0)) *
+                  (item.extraOption && item.variant?.extraPrice
+                    ? item.variant?.extraPrice
+                    : 0)) *
                 newQuantity,
             };
           }),

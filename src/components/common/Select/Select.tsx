@@ -1,14 +1,10 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
-import { Chevron } from '@/components/svg/Chevron/Chevron';
+import { Chevron } from "@/components/svg/Chevron/Chevron";
 
-import { Label } from '../Label/Label';
+import { Label } from "../Label/Label";
 
 interface Option {
   value: string;
@@ -19,7 +15,7 @@ interface Option {
 interface SelectProps {
   options: Option[];
   value: string;
-  onChange: (value: string) => void;
+  onChange: (value: string | any) => void;
   placeholder?: string;
   label?: string;
   required?: boolean;
@@ -71,7 +67,7 @@ const Select = ({
   };
 
   const defaultClasses = `
-          relative w-full cursor-pointer border rounded-[4px] bg-white border-line
+          relative w-full cursor-pointer border rounded-[4px] bg-background border-line
           ${disabled ? "bg-btn-disabled cursor-not-allowed" : ""}
           ${error ? "border-accent" : ""}`;
 
@@ -96,7 +92,7 @@ const Select = ({
         </div>
 
         {isOpen && (
-          <ul className="absolute z-10 w-full mt-1 bg-white border border-line rounded-md shadow-lg max-h-60 overflow-auto px-2 py[6px]">
+          <ul className="absolute z-10 w-full mt-1 bg-background border border-line rounded-md shadow-lg max-h-60 overflow-auto px-2 py[6px]">
             {options.map((option) => (
               <li
                 key={option.value}

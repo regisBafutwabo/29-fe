@@ -1,13 +1,10 @@
-import type { Product } from "./product";
+import type { ProductVariant } from './product';
 
 export interface CartItem {
   id: string;
-  product: Product;
+  variant: ProductVariant;
   quantity: number;
-  selectedOptions: {
-    size: string;
-    color: string;
-    extraOption: string;
-  };
-  price: number;
+  extraOption: string;
+  price: number; // Base price
+  totalPrice: number; // Price including extras
 }

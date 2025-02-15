@@ -22,6 +22,7 @@ export function Counter({
 }: CounterProps) {
   const handleDecrease = () => {
     if (value > min) {
+      console.log("here", value);
       onChange(value - 1);
     }
   };

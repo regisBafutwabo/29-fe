@@ -10,7 +10,7 @@ const defaultClasses =
 export const FilledLabel = ({ label, className = "" }: FilledLabel) => {
   return (
     <div className={twMerge(defaultClasses, className)}>
-      <span>{label}</span>
+      <label>{label}</label>
     </div>
   );
 };

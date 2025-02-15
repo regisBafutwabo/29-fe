@@ -1,6 +1,6 @@
-export type Size = "L - 대형" | "M - 중형" | "S - 소형";
+export type Size = "L" | "M" | "S";
 export type Color = "Teal" | "Black" | "White";
-export type GiftOption = "선택안함" | "선물포장 (2,000원)";
+export type GiftOption = "선택안함" | "선물포장";
 
 export interface ProductVariant {
   size: Size;
@@ -9,6 +9,11 @@ export interface ProductVariant {
   sku: string;
   price?: number;
   extraPrice?: number;
+  image?: string;
+  productName?: string;
+  originalPrice?: number;
+  discount?: number;
+  deliveryInfo?: string;
 }
 
 export interface Product {

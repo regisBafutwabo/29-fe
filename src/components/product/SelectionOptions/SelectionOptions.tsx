@@ -15,9 +15,30 @@ export const SelectionOptions = ({ product }: SelectionOptionsProps) => {
   const { addToCart } = useCartStore();
 
   const handleAddToCart = (variant: ProductVariant, extraOption: string) => {
-    const basePrice = product.data.sellPrice;
-    const extraPrice = product.data.options.extraOptionPrice;
-    addToCart({ ...variant, price: basePrice, extraPrice }, extraOption);
+    const {
+      data: {
+        sellPrice,
+        options: { extraOptionPrice },
+        itemImage,
+        itemName,
+        discountRate,
+        consumerPrice,
+        deliveryInfo,
+      },
+    } = product;
+
+    const cartItem = {
+      ...variant,
+      price: sellPrice,
+      extraPrice: extraOption ? extraOptionPrice : 0,
+      image: itemImage[0]?.imageUrl,
+      productName: itemName,
+      discount: discountRate,
+      originalPrice: consumerPrice,
+      deliveryInfo,
+    };
+
+    addToCart(cartItem, extraOption);
   };
 
   return (
