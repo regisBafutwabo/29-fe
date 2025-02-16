@@ -30,7 +30,7 @@ export const CartItemDetails = (item: CartItem) => {
 
   return (
     <div className="py-3 border-t border-divider">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-[10px]">
         <Checkbox
           label={item.variant?.productName}
           onChange={onSelectionChange}

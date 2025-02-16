@@ -1,7 +1,7 @@
 "use client";
 import { useCartStore } from '@/store/cartStore';
 
-import { CartItemDetails } from '../CartItem/CartItem';
+import { CartItemDetails } from '../CartItemDetails/CartItemDetails';
 
 export const Items = () => {
   const { items } = useCartStore();

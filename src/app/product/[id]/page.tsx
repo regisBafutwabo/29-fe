@@ -17,6 +17,7 @@ type ProductPageProps = {
 export default async function ProductPage({ params }: ProductPageProps) {
   const product = await generateMockProduct();
 
+  // throw new Error("test")
   return (
     <div className="bg-background">
       <section>
@@ -29,7 +30,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           alt="Product Carousel"
         />
       </section>
-      {/* Product Main Info */}
       <section className="flex flex-col px-4 py-[14px] gap-[20px]">
         <div>
           <ProductHeader

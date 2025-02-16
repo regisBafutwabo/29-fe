@@ -1,8 +1,13 @@
 "use client";
 
-import { Button } from "@/components/common/Button/Button";
-import { Checkbox } from "@/components/common/Checkbox/Checkbox";
-import { useCartStore } from "@/store/cartStore";
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import { Button } from '@/components/common/Button/Button';
+import { Checkbox } from '@/components/common/Checkbox/Checkbox';
+import { useCartStore } from '@/store/cartStore';
 
 export const CartHeader = () => {
   const {
@@ -12,6 +17,7 @@ export const CartHeader = () => {
     deselectAll,
     removeSelectedItems,
   } = useCartStore();
+  const [selectionCount, setSelectionCount] = useState(getSelectedCount());
 
   const onSelectAll = (checked: boolean) => {
     if (checked) {
@@ -21,17 +27,21 @@ export const CartHeader = () => {
     }
   };
 
-  const selectionCount = getSelectedCount();
 
   const removeSelected = () => {
     removeSelectedItems();
   };
 
+    useEffect(() => {
+    setSelectionCount(getSelectedCount()); // Update selectionCount on mount
+  }, [items]); // Re-run when items change
+
+
   return (
-    <div className="flex items-center justify-between  py-[13px]">
+    <div className="flex items-center justify-between py-[13px] ">
       <Checkbox
         label={`전체선택 (${selectionCount.selected}/${selectionCount.total})`}
-        checked={selectionCount.selected === selectionCount.total}
+        checked={selectionCount.total > 0 && selectionCount.selected === selectionCount.total}
         onChange={onSelectAll}
       />
       <Button

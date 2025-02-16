@@ -46,6 +46,7 @@ export const SelectionOptions = ({ product }: SelectionOptionsProps) => {
       <ProductOptions
         onAddToCart={handleAddToCart}
         variants={product?.data?.variants}
+        extraOptionsPrice={product?.data?.options?.extraOptionPrice}
       />
     </div>
   );

@@ -6,7 +6,7 @@ import { Items } from '@/components/cart/Items/Items';
 
 export default function CartPage() {
   return (
-    <div className="max-w-container relative">
+    <div className="max-w-container relative min-h-screen">
       <div className="flex flex-col px-4">
         <CartHeader />
         <Items />

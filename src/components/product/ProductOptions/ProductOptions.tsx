@@ -1,40 +1,35 @@
 // Todo: To refactor
 "use client";
-import { useMemo, useState } from "react";
+import {
+  useMemo,
+  useState,
+} from 'react';
 
-import { Button } from "@/components/common/Button/Button";
-import Select from "@/components/common/Select/Select";
-import { Color, ProductVariant, Size } from "@/types/product";
+import { Button } from '@/components/common/Button/Button';
+import Select from '@/components/common/Select/Select';
+import { PRODUCT_OPTIONS } from '@/constants/product';
+import {
+  Color,
+  ProductVariant,
+  Size,
+} from '@/types/product';
 
 interface ProductOptionsProps {
   onAddToCart: (variant: ProductVariant, extraOption: string) => void;
   variants: ProductVariant[];
+  extraOptionsPrice?:number;
 }
 
-export function ProductOptions({ onAddToCart, variants }: ProductOptionsProps) {
+export function ProductOptions({ onAddToCart, variants, extraOptionsPrice }: ProductOptionsProps) {
   const [size, setSize] = useState<Size | "">("");
   const [color, setColor] = useState<Color | "">("");
   const [extraOption, setExtraOption] = useState("");
 
   // Memoized options to prevent recreating on every render
-  const { sizes, colors, extraOptions } = useMemo(() => {
-    return {
-      sizes: [
-        { value: "L", label: "L - 대형" },
-        { value: "M", label: "M - 중형" },
-        { value: "S", label: "S - 소형" },
-      ],
-      colors: [
-        { value: "Teal", label: "Teal" },
-        { value: "Black", label: "Black" },
-        { value: "White", label: "White" },
-      ],
-      extraOptions: [
+  const extraOptions = useMemo(() => [
         { value: "", label: "선택안함" },
-        { value: "선물포장", label: "선물포장" },
-      ],
-    };
-  }, []);
+        { value: "선물포장", label: `선물포장${extraOptionsPrice?` (${extraOptionsPrice})`:""}` },
+  ], []);
 
   const currentVariant = variants.find(
     (value) => value.size === size && value.color === color
@@ -59,9 +54,22 @@ export function ProductOptions({ onAddToCart, variants }: ProductOptionsProps) {
     setExtraOption(value);
   };
 
-  const reset = () => {
-    setColor("");
+
+  const handleAddToCart = () => {
+    if (!currentVariant || !isValid) return;
+
+    onAddToCart(
+      {
+        ...currentVariant,
+        size: size as Size,
+        color: color as Color,
+      },
+      extraOption
+    );
+
+    // Reset form after adding to cart
     setSize("");
+    setColor("");
     setExtraOption("");
   };
 
@@ -71,7 +79,7 @@ export function ProductOptions({ onAddToCart, variants }: ProductOptionsProps) {
         <Select
           label="사이즈"
           required
-          options={sizes}
+          options={PRODUCT_OPTIONS.sizes}
           value={size}
           onChange={handleSizeChange}
         />
@@ -79,7 +87,7 @@ export function ProductOptions({ onAddToCart, variants }: ProductOptionsProps) {
         <Select
           label="색상"
           required
-          options={colors}
+          options={PRODUCT_OPTIONS.colors}
           value={color}
           disabled={!size}
           onChange={handleColorChange}
@@ -100,18 +108,7 @@ export function ProductOptions({ onAddToCart, variants }: ProductOptionsProps) {
           <Button
             variant={!isValid ? "disabled" : "primary"}
             disabled={!isValid}
-            onClick={() => {
-              currentVariant &&
-                onAddToCart(
-                  {
-                    ...currentVariant,
-                    size: size as Size,
-                    color: color as Color,
-                  },
-                  extraOption
-                );
-              reset();
-            }}
+            onClick={handleAddToCart}
             fullWidth
             className="h-[52px]"
           >

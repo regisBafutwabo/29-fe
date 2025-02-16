@@ -6,7 +6,6 @@ export default function ProductPageLayout({
   return (
     <div className="min-h-screen bg-background ">
       <Header title="상품상세" showCart />
-      {/* Main content with header offset */}
       <div className="pt-14">{children}</div>
     </div>
   );
