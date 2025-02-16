@@ -32,7 +32,6 @@ This project is an implementation of a product detail page and shopping cart wit
     - Options: "Teal", "Black", "White"
     - Conditional sold out state
   - Additional Options
-    - Options: "선택안함", "선물포장 (2,000원)"
   - Button state management
     - Disable when required options not selected
     - Disable for sold out combinations
@@ -43,7 +42,6 @@ This project is an implementation of a product detail page and shopping cart wit
   - Select all functionality
   - Indeterminate state handling
   - Bulk delete option
-  - Selection counter (5/5)
 
 - **Cart Items**
   - Individual item selection
