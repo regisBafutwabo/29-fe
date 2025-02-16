@@ -1,5 +1,59 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project Overview
+
+This project is an implementation of a product detail page and shopping cart with a specific focus on component reusability and user interaction.
+
+## Technical Stack & Decisions
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **State Management**: Zustand
+  - Reason: Lightweight, persistent storage for cart, great TypeScript support and used by 29cm.
+- **Image Handling**: Next.js Image component with proper optimization
+- **Package Manager**: NPM
+
+## Core Features Checklist
+
+### Product Page
+
+- **Image Carousel**
+  - 1:1 aspect ratio
+  - Swipe support
+  - Left/right navigation buttons
+  - Mobile responsive
+
+- **Product Options**
+  - Size selection
+    - Options: "L - 대형", "M - 중형", "S - 소형"
+    - Handle sold out state for L-Black combination
+  - Color selection
+    - Options: "Teal", "Black", "White"
+    - Conditional sold out state
+  - Additional Options
+    - Options: "선택안함", "선물포장 (2,000원)"
+  - Button state management
+    - Disable when required options not selected
+    - Disable for sold out combinations
+
+### Cart Page
+
+- **Header Controls**
+  - Select all functionality
+  - Indeterminate state handling
+  - Bulk delete option
+  - Selection counter (5/5)
+
+- **Cart Items**
+  - Individual item selection
+  - Price display
+  - Option display
+  - Delete functionality
+  - Quantity management
+
+- **Summary Section**
+
 ## Getting Started
 
 First, run the development server:
@@ -15,22 +69,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
