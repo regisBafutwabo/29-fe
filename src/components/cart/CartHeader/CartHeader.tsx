@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from 'react';
 
-import { Button } from "@/components/common/Button/Button";
-import { Checkbox } from "@/components/common/Checkbox/Checkbox";
-import { useCartStore } from "@/store/cartStore";
+import { Button } from '@/components/common/Button/Button';
+import { Checkbox } from '@/components/common/Checkbox/Checkbox';
+import { useCartStore } from '@/store/cartStore';
 
 export const CartHeader = () => {
   const {
@@ -38,7 +41,7 @@ export const CartHeader = () => {
   if (!mounted) return null;
 
   return (
-    <div className="flex items-center justify-between py-[13px] ">
+    <div className="fixed w-full pr-8 z-10 bg-background flex items-center justify-between py-[13px]">
       <Checkbox
         label={`전체선택 (${selectionCount.selected}/${selectionCount.total})`}
         checked={
