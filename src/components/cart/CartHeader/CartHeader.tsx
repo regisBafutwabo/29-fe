@@ -17,7 +17,7 @@ export const CartHeader = () => {
     deselectAll,
     removeSelectedItems,
   } = useCartStore();
-  const [selectionCount, setSelectionCount] = useState(getSelectedCount());
+  const [mounted, setMounted] = useState(false);
 
   const onSelectAll = (checked: boolean) => {
     if (checked) {
@@ -32,10 +32,15 @@ export const CartHeader = () => {
     removeSelectedItems();
   };
 
-    useEffect(() => {
-    setSelectionCount(getSelectedCount()); // Update selectionCount on mount
-  }, [items]); // Re-run when items change
+  const selectionCount = getSelectedCount();
 
+  
+  useEffect(() => {
+    setMounted(true)
+  }, []); 
+
+  // To fix Hydration issues(can be better)
+  if(!mounted) return null;
 
   return (
     <div className="flex items-center justify-between py-[13px] ">
