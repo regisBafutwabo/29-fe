@@ -1,9 +1,9 @@
 "use client";
 
-import { Minus } from '@/components/svg/Minus/Minus';
-import { Plus } from '@/components/svg/Plus/Plus';
+import { Minus } from "@/components/svg/Minus/Minus";
+import { Plus } from "@/components/svg/Plus/Plus";
 
-import { Button } from '../Button/Button';
+import { Button } from "../Button/Button";
 
 interface CounterProps {
   value: number;

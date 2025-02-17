@@ -1,9 +1,9 @@
 // TODO: Add More Likes by clicking the like Button
-import { Button } from '@/components/common/Button/Button';
-import { Label } from '@/components/common/Label/Label';
-import { Chevron } from '@/components/svg/Chevron/Chevron';
-import { Heart } from '@/components/svg/Heart/Heart';
-import { formatToKoreanNumber } from '@/lib/utils/numbers';
+import { Button } from "@/components/common/Button/Button";
+import { Label } from "@/components/common/Label/Label";
+import { Chevron } from "@/components/svg/Chevron/Chevron";
+import { Heart } from "@/components/svg/Heart/Heart";
+import { formatToKoreanNumber } from "@/lib/utils/numbers";
 
 type ProductHeaderProps = {
   brandName: string;

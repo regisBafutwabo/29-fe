@@ -1,13 +1,10 @@
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from "react";
 
-import { Button } from '@/components/common/Button/Button';
-import { Checkbox } from '@/components/common/Checkbox/Checkbox';
-import { useCartStore } from '@/store/cartStore';
+import { Button } from "@/components/common/Button/Button";
+import { Checkbox } from "@/components/common/Checkbox/Checkbox";
+import { useCartStore } from "@/store/cartStore";
 
 export const CartHeader = () => {
   const {
@@ -27,26 +24,27 @@ export const CartHeader = () => {
     }
   };
 
-
   const removeSelected = () => {
     removeSelectedItems();
   };
 
   const selectionCount = getSelectedCount();
 
-  
   useEffect(() => {
-    setMounted(true)
-  }, []); 
+    setMounted(true);
+  }, []);
 
   // To fix Hydration issues(can be better)
-  if(!mounted) return null;
+  if (!mounted) return null;
 
   return (
     <div className="flex items-center justify-between py-[13px] ">
       <Checkbox
         label={`전체선택 (${selectionCount.selected}/${selectionCount.total})`}
-        checked={selectionCount.total > 0 && selectionCount.selected === selectionCount.total}
+        checked={
+          selectionCount.total > 0 &&
+          selectionCount.selected === selectionCount.total
+        }
         onChange={onSelectAll}
       />
       <Button

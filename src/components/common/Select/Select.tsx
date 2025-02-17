@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { Chevron } from "@/components/svg/Chevron/Chevron";
 
 import { Label } from "../Label/Label";
+import { SelectItem } from "./SelectItem";
 
 interface Option {
   value: string;
@@ -80,6 +81,13 @@ const Select = ({
       <div
         className={twMerge(defaultClasses, className)}
         onClick={toggleSelect}
+        onKeyUp={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            toggleSelect();
+          }
+        }}
+        role="button"
+        tabIndex={0}
       >
         <div className="flex items-center justify-between p-3 pr-[10px]">
           <Label
@@ -94,19 +102,11 @@ const Select = ({
         {isOpen && (
           <ul className="absolute z-10 w-full mt-1 bg-background border border-line rounded-md shadow-lg max-h-60 overflow-auto px-2 py[6px]">
             {options.map((option) => (
-              <li
-                key={option.value}
-                className={`
-                  p-[6px] cursor-pointer
-                  ${option.disabled ? "cursor-not-allowed " : ""}
-                `}
-                onClick={() => handleSelect(option)}
-              >
-                <Label
-                  text={option.label}
-                  className={`${option.disabled ? "text-soldout" : ""}`}
-                />
-              </li>
+              <SelectItem
+                option={option}
+                onClick={handleSelect}
+                selected={selectedOption?.value === option.value}
+              />
             ))}
           </ul>
         )}

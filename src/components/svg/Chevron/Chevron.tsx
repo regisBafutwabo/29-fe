@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
 type ChevronProps = {
   direction?: "up" | "down" | "left" | "right";
@@ -20,6 +20,7 @@ export const Chevron = ({
 
   return (
     <svg
+      aria-label="chevron"
       className={twMerge(defaultClasses, className)}
       width="16"
       height="9"
@@ -27,6 +28,7 @@ export const Chevron = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Chevron</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

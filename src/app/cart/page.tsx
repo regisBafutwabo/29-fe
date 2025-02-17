@@ -1,8 +1,6 @@
-import { CartHeader } from '@/components/cart/CartHeader/CartHeader';
-import {
-  CheckoutFooter,
-} from '@/components/cart/CheckoutFooter/CheckoutFooter';
-import { Items } from '@/components/cart/Items/Items';
+import { CartHeader } from "@/components/cart/CartHeader/CartHeader";
+import { CheckoutFooter } from "@/components/cart/CheckoutFooter/CheckoutFooter";
+import { Items } from "@/components/cart/Items/Items";
 
 export default function CartPage() {
   return (

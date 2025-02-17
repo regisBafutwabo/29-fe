@@ -7,6 +7,7 @@ export const Minus = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Minus Icon</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

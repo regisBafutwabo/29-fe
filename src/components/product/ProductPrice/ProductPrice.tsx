@@ -1,4 +1,4 @@
-import { Label } from '@/components/common/Label/Label';
+import { Label } from "@/components/common/Label/Label";
 
 type ProductPriceProps = {
   sellPrice: number;

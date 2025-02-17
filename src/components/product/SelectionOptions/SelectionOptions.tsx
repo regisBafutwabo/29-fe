@@ -1,11 +1,8 @@
 "use client";
-import { useCartStore } from '@/store/cartStore';
-import {
-  type Product,
-  ProductVariant,
-} from '@/types/product';
+import { useCartStore } from "@/store/cartStore";
+import { type Product, ProductVariant } from "@/types/product";
 
-import { ProductOptions } from '../ProductOptions/ProductOptions';
+import { ProductOptions } from "../ProductOptions/ProductOptions";
 
 type SelectionOptionsProps = {
   product: Product;

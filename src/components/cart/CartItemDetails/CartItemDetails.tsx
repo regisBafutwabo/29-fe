@@ -1,14 +1,14 @@
 "use client";
-import Image from 'next/image';
+import Image from "next/image";
 
-import { Button } from '@/components/common/Button/Button';
-import { Checkbox } from '@/components/common/Checkbox/Checkbox';
-import { Counter } from '@/components/common/Counter/Counter';
-import { FilledLabel } from '@/components/common/Label/FilledLabel';
-import { Label } from '@/components/common/Label/Label';
-import { Close } from '@/components/svg/Close/Close';
-import { useCartStore } from '@/store/cartStore';
-import type { CartItem } from '@/types/cart';
+import { Button } from "@/components/common/Button/Button";
+import { Checkbox } from "@/components/common/Checkbox/Checkbox";
+import { Counter } from "@/components/common/Counter/Counter";
+import { FilledLabel } from "@/components/common/Label/FilledLabel";
+import { Label } from "@/components/common/Label/Label";
+import { Close } from "@/components/svg/Close/Close";
+import { useCartStore } from "@/store/cartStore";
+import type { CartItem } from "@/types/cart";
 
 export const CartItemDetails = (item: CartItem) => {
   const { updateQuantity, toggleSelection, selectedItems, removeFromCart } =
@@ -60,7 +60,7 @@ export const CartItemDetails = (item: CartItem) => {
             />
             <Label
               text={`할인적용 : ${
-                item?.variant?.discount ? item?.variant?.discount + "%" : "없음"
+                item?.variant?.discount ? `${item?.variant?.discount}%` : "없음"
               } `}
               className="text-secondary font-normal text-xs"
             />
@@ -100,7 +100,6 @@ export const CartItemDetails = (item: CartItem) => {
           <Counter value={item?.quantity} onChange={modifyQuantity} />
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

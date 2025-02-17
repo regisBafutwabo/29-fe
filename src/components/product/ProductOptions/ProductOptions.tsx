@@ -1,35 +1,38 @@
 // Todo: To refactor
 "use client";
-import {
-  useMemo,
-  useState,
-} from 'react';
+import { useMemo, useState } from "react";
 
-import { Button } from '@/components/common/Button/Button';
-import Select from '@/components/common/Select/Select';
-import { PRODUCT_OPTIONS } from '@/constants/product';
-import {
-  Color,
-  ProductVariant,
-  Size,
-} from '@/types/product';
+import { Button } from "@/components/common/Button/Button";
+import Select from "@/components/common/Select/Select";
+import { PRODUCT_OPTIONS } from "@/constants/product";
+import { Color, ProductVariant, Size } from "@/types/product";
 
 interface ProductOptionsProps {
   onAddToCart: (variant: ProductVariant, extraOption: string) => void;
   variants: ProductVariant[];
-  extraOptionsPrice?:number;
+  extraOptionsPrice?: number;
 }
 
-export function ProductOptions({ onAddToCart, variants, extraOptionsPrice }: ProductOptionsProps) {
+export function ProductOptions({
+  onAddToCart,
+  variants,
+  extraOptionsPrice,
+}: ProductOptionsProps) {
   const [size, setSize] = useState<Size | "">("");
   const [color, setColor] = useState<Color | "">("");
   const [extraOption, setExtraOption] = useState("");
 
   // Memoized options to prevent recreating on every render
-  const extraOptions = useMemo(() => [
-        { value: "", label: "선택안함" },
-        { value: "선물포장", label: `선물포장${extraOptionsPrice?` (${extraOptionsPrice})`:""}` },
-  ], []);
+  const extraOptions = useMemo(
+    () => [
+      { value: "", label: "선택안함" },
+      {
+        value: "선물포장",
+        label: `선물포장${extraOptionsPrice ? ` (${extraOptionsPrice})` : ""}`,
+      },
+    ],
+    [extraOptionsPrice]
+  );
 
   const currentVariant = variants.find(
     (value) => value.size === size && value.color === color
@@ -53,7 +56,6 @@ export function ProductOptions({ onAddToCart, variants, extraOptionsPrice }: Pro
   const handleExtraOptionChange = (value: string) => {
     setExtraOption(value);
   };
-
 
   const handleAddToCart = () => {
     if (!currentVariant || !isValid) return;

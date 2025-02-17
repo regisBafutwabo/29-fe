@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "disabled" | "outlined" | "text" | "tertiary";
@@ -29,6 +29,7 @@ export function Button({
 
   return (
     <button
+      type="button"
       className={twMerge(defaultClasses, className)}
       disabled={disabled}
       onClick={onClick}

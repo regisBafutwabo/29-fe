@@ -3,7 +3,7 @@ import {
   type GiftOption,
   type Product,
   type Size,
-} from '../../types/product';
+} from "../../types/product";
 
 const MOCK_IMAGES = [
   "https://images.pexels.com/photos/15352967/pexels-photo-15352967/free-photo-of-a-lamp-with-circles-on-it-is-sitting-on-a-bed.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

@@ -1,6 +1,6 @@
-import { Label } from '@/components/common/Label/Label';
+import { Label } from "@/components/common/Label/Label";
 
-import { ProductPrice } from '../ProductPrice/ProductPrice';
+import { ProductPrice } from "../ProductPrice/ProductPrice";
 
 type ProductInfoProps = {
   name: string;

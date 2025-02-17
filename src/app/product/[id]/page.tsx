@@ -1,12 +1,8 @@
-import { ImageCarousel } from '@/components/product/Carousel/Carousel';
-import {
-  ProductHeader,
-} from '@/components/product/ProductHeader/ProductHeader';
-import { ProductInfo } from '@/components/product/ProductInfo/ProductInfo';
-import {
-  SelectionOptions,
-} from '@/components/product/SelectionOptions/SelectionOptions';
-import { generateMockProduct } from '@/lib/utils/mockData';
+import { ImageCarousel } from "@/components/product/Carousel/Carousel";
+import { ProductHeader } from "@/components/product/ProductHeader/ProductHeader";
+import { ProductInfo } from "@/components/product/ProductInfo/ProductInfo";
+import { SelectionOptions } from "@/components/product/SelectionOptions/SelectionOptions";
+import { generateMockProduct } from "@/lib/utils/mockData";
 
 type ProductPageProps = {
   params: {

@@ -7,6 +7,7 @@ export const Check = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Check Icon</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

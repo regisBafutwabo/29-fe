@@ -11,10 +11,7 @@
  * formatToKoreanNumber(12000000) // "1.2천만"
  * formatToKoreanNumber(120000000) // "1.2억"
  */
-export const formatToKoreanNumber = (
-  value: number,
-  decimals: number = 1
-): string => {
+export const formatToKoreanNumber = (value: number, decimals = 1): string => {
   const units = ["", "만", "억", "조"];
   const unitSize = 10000;
 
@@ -30,7 +27,7 @@ export const formatToKoreanNumber = (
   const unit = units[exponent] || "";
 
   // Calculate the main number
-  let number = absValue / Math.pow(unitSize, exponent);
+  let number = absValue / unitSize ** exponent;
 
   // Round to specified decimals only if needed
   const hasDecimal = number % 1 !== 0;
